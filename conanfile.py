@@ -13,6 +13,7 @@ class Gm2calcConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [True, False], "fPIC": [True, False]}
     default_options = ("shared=False", "fPIC=True")
+    build_policy = "missing"
     exports = ["COPYING"]
     generators = "cmake"
     requires = ("eigen/[>=3.1]@conan/stable", "boost/[>=1.37.0]@conan/stable")
