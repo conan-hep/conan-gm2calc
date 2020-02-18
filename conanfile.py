@@ -14,7 +14,7 @@ class Gm2calcConan(ConanFile):
     options = {"shared": [True, False], "fPIC": [True, False]}
     default_options = ("shared=False", "fPIC=True")
     build_policy = "missing"
-    exports = ["COPYING"]
+    exports = ["LICENSE"]
     generators = "cmake"
     requires = ("eigen/[>=3.1]@conan/stable", "boost/[>=1.37.0]@conan/stable")
     _source_subfolder = "GM2Calc"
@@ -39,7 +39,7 @@ class Gm2calcConan(ConanFile):
         self.copy("*.so", dst="lib", keep_path=False)
         self.copy("*.dylib", dst="lib", keep_path=False)
         self.copy("*.a", dst="lib", keep_path=False)
-        self.copy("COPYING", src=self._source_subfolder, dst="licenses", keep_path=False)
+        self.copy("LICENSE", src=self._source_subfolder, dst="licenses", keep_path=False)
 
     def package_info(self):
         self.cpp_info.libs = ["gm2calc"]
