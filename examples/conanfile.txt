@@ -1,0 +1,7 @@
+[requires]
+GM2Calc/1.6.0@conan/stable
+
+[generators]
+cmake
+make
+pkg_config
