@@ -29,10 +29,8 @@ class Gm2calcConan(ConanFile):
 
     def package(self):
         _header_dst     = "include{}gm2calc".format(os.sep)
-        _gen_header_src = "include{}gm2calc".format(os.sep)
         _pub_header_src = "{}{}include{}gm2calc".format(self._source_subfolder, os.sep, os.sep)
 
-        self.copy("gm2_config.h", dst=_header_dst, src=_gen_header_src, keep_path=False)
         self.copy("*.h", dst=_header_dst, src=_pub_header_src, keep_path=False)
         self.copy("*.hpp", dst=_header_dst, src=_pub_header_src, keep_path=False)
         self.copy("*.lib", dst="lib", keep_path=False)
