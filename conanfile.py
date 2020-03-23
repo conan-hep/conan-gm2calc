@@ -17,10 +17,11 @@ class Gm2calcConan(ConanFile):
     exports = ["LICENSE", "FindGM2Calc.cmake"]
     generators = "cmake"
     requires = ("eigen/[>=3.1]@conan/stable", "boost/[>=1.37.0]@conan/stable")
-    _source_subfolder = "GM2Calc"
+    _source_subfolder = "GM2Calc-{}".format(version)
+    _tarball = "v{}.tar.gz".format(version)
 
     def source(self):
-        self.run("git clone https://github.com/GM2Calc/GM2Calc")
+        tools.get("https://github.com/GM2Calc/GM2Calc/archive/{}".format(self._tarball))
 
     def build(self):
         cmake = CMake(self)
