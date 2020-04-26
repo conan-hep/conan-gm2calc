@@ -4,7 +4,7 @@ from conans import ConanFile, CMake, tools
 
 class Gm2calcConan(ConanFile):
     name = "GM2Calc"
-    version = "1.6.0"
+    version = "1.7.0"
     license = "GPL-3.0"
     author = "Alexander Voigt"
     url = "https://github.com/GM2Calc/GM2Calc"
