@@ -16,7 +16,8 @@ class Gm2calcConan(ConanFile):
     build_policy = "missing"
     exports = ["LICENSE", "FindGM2Calc.cmake"]
     generators = "cmake"
-    requires = ("eigen/[>=3.1]@conan/stable", "boost/[>=1.37.0]@conan/stable")
+    requires = ("eigen/[>=3.1]@conan/stable")
+    build_requires = ("boost/[>=1.37.0]@conan/stable")
     _source_subfolder = "GM2Calc-{}".format(version)
     _tarball = "v{}.tar.gz".format(version)
 
