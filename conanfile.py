@@ -12,7 +12,7 @@ class Gm2calcConan(ConanFile):
     topics = ("HEP")
     settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [True, False], "fPIC": [True, False]}
-    default_options = ("shared=False", "fPIC=True")
+    default_options = {"shared": False, "fPIC": True, "boost:header_only": True}
     build_policy = "missing"
     exports = ["LICENSE"]
     generators = "cmake"
