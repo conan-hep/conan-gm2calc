@@ -17,7 +17,7 @@ class Gm2calcConan(ConanFile):
     exports = ["LICENSE"]
     generators = "cmake"
     requires = ("eigen/[>=3.1]@conan/stable")
-    build_requires = ("boost/[>=1.37.0]@conan/stable")
+    build_requires = ("boost/[>=1.37.0]@conan/stable", "libuuid/[>=1.0.0]")
     _source_subfolder = "GM2Calc-{}".format(version)
     _tarball = "v{}.tar.gz".format(version)
 
