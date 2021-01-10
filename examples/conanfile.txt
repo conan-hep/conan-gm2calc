@@ -1,5 +1,5 @@
 [requires]
-GM2Calc/1.7.0@conan/stable
+GM2Calc/1.7.1@conan/stable
 
 [generators]
 cmake
