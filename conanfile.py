@@ -15,32 +15,39 @@ class Gm2calcConan(ConanFile):
     default_options = {"shared": False, "fPIC": True, "boost:header_only": True}
     build_policy = "missing"
     exports = ["LICENSE"]
+    exports_sources = ["CMakeLists.txt"]
     generators = "cmake"
     requires = ("eigen/[>=3.1]@conan/stable")
     build_requires = ("boost/[>=1.37.0]@conan/stable", "libuuid/[>=1.0.0]")
-    _source_subfolder = "GM2Calc-{}".format(version)
-    _tarball = "v{}.tar.gz".format(version)
+    _cmake = None
+
+    @property
+    def _source_subfolder(self):
+        return "source_subfolder"
+
+    @property
+    def _build_subfolder(self):
+        return "build_subfolder"
 
     def source(self):
-        tools.get("https://github.com/GM2Calc/GM2Calc/archive/{}".format(self._tarball))
+        tools.get("https://github.com/GM2Calc/GM2Calc/archive/v{}.tar.gz".format(self.version))
+        os.rename("{}-{}".format(self.name, self.version), self._source_subfolder)
 
     def build(self):
-        cmake = CMake(self)
-        cmake.configure(source_folder=self._source_subfolder)
+        cmake = self._configure_cmake()
         cmake.build()
 
-    def package(self):
-        _header_dst     = "include{}gm2calc".format(os.sep)
-        _pub_header_src = "{}{}include{}gm2calc".format(self._source_subfolder, os.sep, os.sep)
+    def _configure_cmake(self):
+        if self._cmake:
+            return self._cmake
+        self._cmake = CMake(self)
+        self._cmake.configure(build_folder=self._build_subfolder)
+        return self._cmake
 
-        self.copy("*.h", dst=_header_dst, src=_pub_header_src, keep_path=False)
-        self.copy("*.hpp", dst=_header_dst, src=_pub_header_src, keep_path=False)
-        self.copy("*.lib", dst="lib", keep_path=False)
-        self.copy("*.dll", dst="bin", keep_path=False)
-        self.copy("*.so", dst="lib", keep_path=False)
-        self.copy("*.dylib", dst="lib", keep_path=False)
-        self.copy("*.a", dst="lib", keep_path=False)
+    def package(self):
         self.copy("LICENSE", src=self._source_subfolder, dst="licenses", keep_path=False)
+        cmake = self._configure_cmake()
+        cmake.install()
 
     def package_info(self):
-        self.cpp_info.libs = ["gm2calc"]
+        self.cpp_info.libs = tools.collect_libs(self)
