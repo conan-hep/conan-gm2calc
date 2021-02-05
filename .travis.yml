@@ -1,7 +1,9 @@
 env:
    global:
      - CONAN_REFERENCE: "GM2Calc/1.7.2"
-     
+     - CONAN_USERNAME: "_"
+     - CONAN_CHANNEL: "ci"
+
 linux: &linux
    os: linux
    dist: xenial
