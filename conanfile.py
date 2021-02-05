@@ -4,7 +4,6 @@ from conans import ConanFile, CMake, tools
 
 class Gm2calcConan(ConanFile):
     name = "GM2Calc"
-    version = "1.7.2"
     license = "GPL-3.0"
     author = "Alexander Voigt"
     url = "https://github.com/GM2Calc/GM2Calc"
@@ -30,7 +29,7 @@ class Gm2calcConan(ConanFile):
         return "build_subfolder"
 
     def source(self):
-        tools.get("https://github.com/GM2Calc/GM2Calc/archive/v{}.tar.gz".format(self.version))
+        tools.get(**self.conan_data["sources"][self.version])
         os.rename("{}-{}".format(self.name, self.version), self._source_subfolder)
 
     def build(self):
