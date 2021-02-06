@@ -13,7 +13,6 @@ class Gm2calcConan(ConanFile):
     options = {"shared": [True, False], "fPIC": [True, False]}
     default_options = {"shared": False, "fPIC": True, "boost:header_only": True}
     build_policy = "missing"
-    exports = ["LICENSE"]
     exports_sources = ["CMakeLists.txt"]
     generators = "cmake"
     requires = ("eigen/[>=3.1]@conan/stable")
@@ -44,7 +43,6 @@ class Gm2calcConan(ConanFile):
         return self._cmake
 
     def package(self):
-        self.copy("LICENSE", src=self._source_subfolder, dst="licenses", keep_path=False)
         cmake = self._configure_cmake()
         cmake.install()
 
