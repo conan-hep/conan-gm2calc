@@ -15,8 +15,8 @@ class Gm2calcConan(ConanFile):
     build_policy = "missing"
     exports_sources = ["CMakeLists.txt"]
     generators = "cmake"
-    requires = ("eigen/[>=3.1]@conan/stable")
-    build_requires = ("boost/[>=1.37.0]@conan/stable", "libuuid/[>=1.0.0]")
+    requires = ("eigen/[>=3.1]")
+    build_requires = ("boost/[>=1.75]")
     _cmake = None
 
     @property
