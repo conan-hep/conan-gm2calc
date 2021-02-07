@@ -18,13 +18,13 @@ References:
 
 GM2Calc can be installed with conan by running:
 
-    conan install GM2Calc/1.7.3@conan/stable
+    conan install GM2Calc/1.7.4@conan/stable
 
 Alternatively a `conanfile.txt` file can be created in your project
 directory with the following content:
 
     [requires]
-    GM2Calc/1.7.3@conan/stable
+    GM2Calc/1.7.4@conan/stable
 
     [generators]
     cmake
@@ -66,7 +66,7 @@ publishes the package to the local system cache.  This includes
 downloading dependencies from "build_requires" and "requires" , and
 then running the build() method.
 
-    $ conan create . GM2Calc/1.7.3@conan/stable
+    $ conan create . GM2Calc/1.7.4@conan/stable
 
 
 ### Available Options
