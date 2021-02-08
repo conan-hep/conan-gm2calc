@@ -14,6 +14,5 @@ class Gm2calcTestConan(ConanFile):
 
     def test(self):
         if not tools.cross_building(self.settings):
-            os.chdir("bin")
-            self.run(".%sexample-c" % os.sep)
-            self.run(".%sexample-cpp" % os.sep)
+            self.run(os.path.join("bin", "example-c"), run_environment=True)
+            self.run(os.path.join("bin", "example-cpp"), run_environment=True)
