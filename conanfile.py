@@ -5,7 +5,6 @@ from conans import ConanFile, CMake, tools
 class Gm2calcConan(ConanFile):
     name = "GM2Calc"
     license = "GPL-3.0"
-    author = "Alexander Voigt"
     url = "https://github.com/GM2Calc/GM2Calc"
     description = "C++ library to calculate the anomalous magnetic moment of the muon in the MSSM"
     topics = ("HEP")
