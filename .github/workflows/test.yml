@@ -16,16 +16,17 @@ jobs:
     strategy:
       matrix:
         include:
-          - {os: ubuntu-20.04, compiler: gcc  , version:  7, cc: gcc-7   , cxx: g++-7     , libcxx: libstdc++11}
-          - {os: ubuntu-20.04, compiler: gcc  , version:  8, cc: gcc-8   , cxx: g++-8     , libcxx: libstdc++11}
-          - {os: ubuntu-20.04, compiler: gcc  , version:  9, cc: gcc-9   , cxx: g++-9     , libcxx: libstdc++11}
-          - {os: ubuntu-20.04, compiler: gcc  , version: 10, cc: gcc-10  , cxx: g++-10    , libcxx: libstdc++11}
-          - {os: ubuntu-20.04, compiler: clang, version:  8, cc: clang-8 , cxx: clang++-8 , libcxx: libstdc++11}
-          - {os: ubuntu-20.04, compiler: clang, version:  9, cc: clang-9 , cxx: clang++-9 , libcxx: libstdc++11}
-          - {os: ubuntu-20.04, compiler: clang, version: 10, cc: clang-10, cxx: clang++-10, libcxx: libstdc++11}
-          - {os: macos-10.15 , compiler: gcc  , version:  8, cc: gcc-8   , cxx: g++-8     , libcxx: libstdc++11}
-          - {os: macos-10.15 , compiler: gcc  , version:  9, cc: gcc-9   , cxx: g++-9     , libcxx: libstdc++11}
-          - {os: macos-10.15 , compiler: gcc  , version: 10, cc: gcc-10  , cxx: g++-10    , libcxx: libstdc++11}
+          # - {os: ubuntu-20.04, compiler: gcc  , version:  7, cc: gcc-7   , cxx: g++-7     , libcxx: libstdc++11}
+          # - {os: ubuntu-20.04, compiler: gcc  , version:  8, cc: gcc-8   , cxx: g++-8     , libcxx: libstdc++11}
+          # - {os: ubuntu-20.04, compiler: gcc  , version:  9, cc: gcc-9   , cxx: g++-9     , libcxx: libstdc++11}
+          # - {os: ubuntu-20.04, compiler: gcc  , version: 10, cc: gcc-10  , cxx: g++-10    , libcxx: libstdc++11}
+          # - {os: ubuntu-20.04, compiler: clang, version:  8, cc: clang-8 , cxx: clang++-8 , libcxx: libstdc++11}
+          # - {os: ubuntu-20.04, compiler: clang, version:  9, cc: clang-9 , cxx: clang++-9 , libcxx: libstdc++11}
+          # - {os: ubuntu-20.04, compiler: clang, version: 10, cc: clang-10, cxx: clang++-10, libcxx: libstdc++11}
+          # - {os: macos-10.15 , compiler: gcc  , version:  8, cc: gcc-8   , cxx: g++-8     , libcxx: libstdc++11}
+          # - {os: macos-10.15 , compiler: gcc  , version:  9, cc: gcc-9   , cxx: g++-9     , libcxx: libstdc++11}
+          # - {os: macos-10.15 , compiler: gcc  , version: 10, cc: gcc-10  , cxx: g++-10    , libcxx: libstdc++11}
+          - {os: windows-2019, compiler: vc   , version: 16, cc: vc-16   , cxx: vc-16     , libcxx: libstdc++11}
 
     steps:
     - uses: actions/checkout@v1
