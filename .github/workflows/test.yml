@@ -37,10 +37,10 @@ jobs:
     - name: install conan
       run: pip install conan conan_package_tools
     - name: create package
-      run: |
-        conan create . ${CONAN_REFERENCE}@ \
-          -s compiler="$COMPILER" \
-          -s compiler.version="$COMPILER_VERSION" \
+      run: >
+        conan create . ${CONAN_REFERENCE}@
+          -s compiler="$COMPILER"
+          -s compiler.version="$COMPILER_VERSION"
           -s compiler.libcxx="$COMPILER_LIBCXX"
       env:
         CC: ${{ matrix.cc }}
