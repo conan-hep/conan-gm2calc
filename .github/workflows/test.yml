@@ -39,9 +39,9 @@ jobs:
     - name: create package
       run: >
         conan create . ${CONAN_REFERENCE}@
-          -s compiler="$COMPILER"
-          -s compiler.version="$COMPILER_VERSION"
-          -s compiler.libcxx="$COMPILER_LIBCXX"
+        -s compiler="$COMPILER"
+        -s compiler.version="$COMPILER_VERSION"
+        -s compiler.libcxx="$COMPILER_LIBCXX"
       env:
         CC: ${{ matrix.cc }}
         CXX: ${{ matrix.cxx }}
