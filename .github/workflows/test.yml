@@ -26,7 +26,7 @@ jobs:
           # - {os: macos-10.15 , compiler: gcc  , version:  8, cc: gcc-8   , cxx: g++-8     , libcxx: libstdc++11}
           # - {os: macos-10.15 , compiler: gcc  , version:  9, cc: gcc-9   , cxx: g++-9     , libcxx: libstdc++11}
           # - {os: macos-10.15 , compiler: gcc  , version: 10, cc: gcc-10  , cxx: g++-10    , libcxx: libstdc++11}
-          - {os: windows-2019, compiler: vc   , version: 16, cc: vc-16   , cxx: vc-16     , libcxx: libstdc++11}
+          - {os: windows-2019, compiler: 'Visual Studio', version: 16, cc: vc-16   , cxx: vc-16     , libcxx: libstdc++11}
 
     steps:
     - uses: actions/checkout@v1
@@ -38,10 +38,10 @@ jobs:
       run: pip install conan conan_package_tools
     - name: create package
       run: >
-        conan create . ${CONAN_REFERENCE}@
-        -s compiler="$COMPILER"
-        -s compiler.version="$COMPILER_VERSION"
-        -s compiler.libcxx="$COMPILER_LIBCXX"
+        conan create . ${{env.CONAN_REFERENCE}}@
+        -s compiler=${{env.COMPILER}}
+        -s compiler.version=${{env.COMPILER_VERSION}}
+        -s compiler.libcxx=${{env.COMPILER_LIBCXX}}
       env:
         CC: ${{ matrix.cc }}
         CXX: ${{ matrix.cxx }}
