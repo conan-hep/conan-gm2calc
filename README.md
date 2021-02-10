@@ -1,4 +1,3 @@
-[![Build Status Travis](https://travis-ci.org/conan-hep/conan-gm2calc.svg)](https://travis-ci.org/conan-hep/conan-gm2calc)
 ![test](https://github.com/conan-hep/conan-gm2calc/workflows/test/badge.svg)
 
 ## Conan package recipe for [*GM2Calc*](https://github.com/GM2Calc/GM2Calc)
