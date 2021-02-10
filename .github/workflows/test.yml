@@ -47,3 +47,14 @@ jobs:
         COMPILER: ${{ matrix.compiler }}
         COMPILER_VERSION: ${{ matrix.version }}
         COMPILER_LIBCXX: ${{ matrix.libcxx }}
+      if: ${{ runner.os != 'Windows' }}
+    - name: create package
+      run: >
+        conan create . ${{env.CONAN_REFERENCE}}@
+        -s compiler="${{env.COMPILER}}"
+        -s compiler.version="${{env.COMPILER_VERSION}}"
+      env:
+        COMPILER: ${{ matrix.compiler }}
+        COMPILER_VERSION: ${{ matrix.version }}
+        COMPILER_LIBCXX: ${{ matrix.libcxx }}
+      if: ${{ runner.os == 'Windows' }}
