@@ -29,6 +29,7 @@ class Gm2calcConan(ConanFile):
     def config_options(self):
         if self.settings.os == "Windows":
             del self.options.fPIC
+            del self.settings.compiler.libcxx
 
     def source(self):
         tools.get(**self.conan_data["sources"][self.version])
