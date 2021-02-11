@@ -8,7 +8,7 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     env:
-      CONAN_REFERENCE: "GM2Calc/1.7.4"
+      CONAN_REFERENCE: "GM2Calc/1.7.5"
       CONAN_USERNAME: "conan"
       CONAN_CHANNEL: "stable"
 
